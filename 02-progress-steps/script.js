@@ -3,11 +3,12 @@ document.querySelectorAll('.btn').forEach(item => {
     item.addEventListener('click', function (event) {
         const id = event.target.id;
         if (id === 'next' && percent < 3) {
-            percent++
+            percent++;
+            document.querySelectorAll('.circle')[percent].classList.add('active');
         } else if (id === 'prev' && percent > 0) {
+            document.querySelectorAll('.circle')[percent].classList.remove('active');
             percent--;
         }
-        console.log(percent);
         document.querySelector('#progress').style.width = (33.33 * percent).toFixed(2) + '%';
     });
 });
